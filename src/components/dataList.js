@@ -25,10 +25,11 @@ export default class DataList extends Component {
 
   act (e) {
     if (e.type === 'focus') {
-      document.getElementById('ggg').style.display = 'block'
+      document.getElementById('st-datalist').style.display = 'block'
       document.getElementById('st-input').value = ''
     } else if ((e.type === 'blur')) {
-      document.getElementById('ggg').style.display = 'none'
+      document.getElementById('st-datalist').style.display = 'none'
+      document.getElementById('initial-option').style.display = 'none'
       this.setState({ currentArray: this.state.initialArray })
     }
   }
@@ -36,7 +37,7 @@ export default class DataList extends Component {
   getDatalist (e) {
     this.props.onInputChange(e.target.value)
     document.getElementById('st-input').value = e.target.value
-    document.getElementById('ggg').style.display = 'none'
+    document.getElementById('st-datalist').style.display = 'none'
   }
 
   render() {
@@ -50,7 +51,7 @@ export default class DataList extends Component {
           onFocus={this.act.bind(this)}
           value={this.props.value}
           />
-        <div className="st-datalist" id='ggg'>
+        <div className="st-datalist" id='st-datalist'>
           <div className="st-datalist-option"
             style={{display: 'none'}}
             id='initial-option'>ไม่พบข้อมูล</div>
